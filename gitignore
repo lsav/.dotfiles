@@ -1,0 +1,26 @@
+# binaries
+
+*.pyc
+*.o
+*.exe
+*.so
+*.dll
+*.pdf
+
+# packages
+
+*.zip
+*.tar
+*.7z
+*.gz
+
+# temporary files
+
+*.swp
+*.bak
+*.tmp
+*.log
+
+# others
+
+*.vscode
