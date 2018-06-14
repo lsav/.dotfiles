@@ -10,7 +10,7 @@ set history=100
 
 " Visuals
 
-set lines=40 columns=100
+" set lines=40 columns=100
 set colorcolumn=80
 colo monokai-soda
 
