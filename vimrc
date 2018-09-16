@@ -2,11 +2,13 @@
 
 set nocompatible
 filetype on
+filetype plugin on
 syntax enable
 syntax on
 set number
 set hidden
 set history=100
+let mapleader=","
 
 " Visuals
 
@@ -24,9 +26,6 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set autoindent
-
-" Filetype indent options
-
 autocmd FileType tex setlocal ts=2 sw=2 sts=2 colorcolumn=90 noai nosi
 autocmd FileType cpp setlocal ts=2 sw=2 sts=2 colorcolumn=80
 
@@ -41,3 +40,23 @@ set foldnestmax=6
 inoremap jj <ESC>
 nnoremap j gj
 nnoremap k gk
+nnoremap ; :
+nnoremap <leader>vs <C-w>v<C-w>l
+
+" Search tweaks
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+
+" Plugins
+execute pathogen#infect()
+let g:NERDSpaceDelims = 1
+
+nnoremap <leader>tree :NERDTree<CR>
+let NERDTreeQuitOnOpen = 1
+
+cs add $HOME/Dropbox/cpen331/os161/.tags/cscope.out
