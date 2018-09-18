@@ -1,7 +1,5 @@
 #!/bin/sh
 
-mkdir -p .tags
-
-ctags -R -f ./.tags/tags .
-find -iregex ".*\.\(h\|c\|cpp\|S\)$" > ./.tags/cscope.files
-cscope -q -R -b -i .tags/cscope.files
+ctags -R -f ./.git/tags .
+# find -iregex ".*\.\(h\|c\|cpp\|S\)$" > ./.tags/cscope.files
+# cscope -q -R -b -i .tags/cscope.files
