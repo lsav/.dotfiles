@@ -3,15 +3,15 @@
 dotfiles_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # symlinks
-for i in ctags bash_aliases bash_functions vimrc vim gitignore_global git_template tmux.conf;
+for i in ctags bash_functions vimrc vim gitconfig gitignore_global git_template;
 do
   ln -s $dotfiles_dir/$i $HOME/.$i
 done
 
 # import bash functions
-if [ "$(uname)" == "Darwin" ] then
+if [ `uname` == "Darwin" ] then
     bash_config=".bash_profile"
-elif [ "$(uname)" == "Linux" ] then
+elif [ `uname` == "Linux" ] then
     bash_config=".bashrc"
 fi
 
@@ -20,12 +20,6 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 EOS
-
-# git setup
-git config --global user.name "Lise Savard"
-git config --global user.email "git@lisesavard.com"
-git config --global core.excludesfile ~/.gitignore_global
-git config --global init.templatedir ~/.git_template
 
 # copy fonts
 if [ "$(uname)" == "Darwin" ]; then

@@ -15,11 +15,11 @@ let mapleader=","
 
 set background=dark
 set colorcolumn=80
-set t_ut=  " fix background when using tmux
 " colo monokai-soda
 let g:zenburn_high_Contrast=1
 colo zenburn
 set t_ut=  " fix background when using tmux
+set listchars=tab:▸\ 
 
 " Indent options
 
@@ -31,9 +31,11 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set autoindent
-autocmd FileType tex setlocal ts=2 sw=2 sts=2 colorcolumn=90 noai nosi
-autocmd FileType cpp setlocal ts=2 sw=2 sts=2 colorcolumn=80
+autocmd FileType tex setlocal ts=2 sw=2 sts=2 noai nosi
+" autocmd FileType cpp setlocal ts=2 sw=2 sts=2
 autocmd FileType python setlocal nosmartindent  " fix comment indentation
+autocmd FileType markdown setlocal wrap linebreak nolist background=dark
+autocmd FileType markdown colo pencil
 
 " Folding
 
@@ -63,10 +65,13 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 """"""""""
 " PLUGINS
 """"""""""
+
+cs add $CSCOPE_DB
 
 execute pathogen#infect()
 let g:NERDSpaceDelims = 1
@@ -77,3 +82,13 @@ let NERDTreeQuitOnOpen = 1
 " Lightline
 set laststatus=2
 set noshowmode
+
+let g:ycm_complete_in_comments=0
+let g:ycm_complete_in_strings=0
+let g:ycm_min_num_of_chars_for_completion=3
+let g:ycm_max_num_candidates=12
+let g:ycm_confirm_extra_conf=0
+
+let g:clang_format#style_options={
+                    \ "IndentWidth": 4, 
+                    \ "SortIncludes": "false"}

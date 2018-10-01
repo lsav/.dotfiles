@@ -1,0 +1,9 @@
+[user]
+	email = git@lisesavard.com
+	name = Lise Savard
+[core]
+	excludesfile = /home/lise/.gitignore_global
+[alias]
+	ctags = !.git/hooks/ctags
+    cscope = ~.git/hooks/cscope
+    tweak = commit --amend --no-edit
