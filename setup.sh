@@ -3,7 +3,7 @@
 dotfiles_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # symlinks
-for i in ctags bash_functions vimrc vim gitconfig gitignore_global git_template;
+for i in ctags bash_functions vimrc vim gitconfig gitignore_global;
 do
   ln -s $dotfiles_dir/$i $HOME/.$i
 done

@@ -13,9 +13,10 @@ mcd () {
 }
 
 copycat() {
-    if [ -z "$1" ] ; then
+    if [[ $# -eq 1 ]] ; then
         cat "$1" | xclip -selection clipboard
     else
         tail -$2 "$1" | xclip -selection clipboard
     fi
 }
+

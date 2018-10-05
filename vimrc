@@ -88,6 +88,7 @@ let g:ycm_complete_in_strings=0
 let g:ycm_min_num_of_chars_for_completion=3
 let g:ycm_max_num_candidates=12
 let g:ycm_confirm_extra_conf=0
+let g:ycm_python_binary_path="python"
 
 let g:clang_format#style_options={
                     \ "IndentWidth": 4, 
