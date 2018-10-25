@@ -3,14 +3,14 @@
 dotfiles_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # symlinks
-for i in ctags bash_functions vimrc vim gitconfig gitignore_global;
+for i in bash_functions vimrc vim gitconfig gitignore_global;
 do
   ln -s $dotfiles_dir/$i $HOME/.$i
 done
 
 # import bash functions
 if [ `uname` == "Darwin" ] then
-    bash_config=".bash_profile"
+    bash_config=".zshrc"
 elif [ `uname` == "Linux" ] then
     bash_config=".bashrc"
 fi
