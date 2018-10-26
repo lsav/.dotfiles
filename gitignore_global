@@ -24,4 +24,6 @@
 # others
 
 *.vscode
-tags
+*.DS_store
+*.netrwhist
+

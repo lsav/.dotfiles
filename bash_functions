@@ -2,7 +2,7 @@
 
 csindex () {
     mkdir -p .cscope
-    find -iregex ".*\.\(h\|c\|cpp\|S\)$" > .cscope/cscope.files
+    find -E ./ -regex ".*\.(h|c|cpp|S)$" > .cscope/cscope.files
     cscope -q -R -b -i .cscope/cscope.files
     mv cscope.* .cscope
 }

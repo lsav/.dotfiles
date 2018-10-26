@@ -14,7 +14,7 @@ let mapleader=","
 " Visuals
 
 set background=dark
-set colorcolumn=80
+set colorcolumn=80,100
 " colo monokai-soda
 let g:zenburn_high_Contrast=1
 colo zenburn
