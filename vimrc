@@ -43,13 +43,6 @@ set foldenable
 set foldlevelstart=8
 set foldnestmax=6
 
-" Keybindings
-
-inoremap jj <ESC>
-nnoremap j gj
-nnoremap k gk
-nnoremap ; :
-
 " Split pane QOL improvements
 
 set splitbelow
@@ -66,6 +59,13 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
+
+" Keybindings
+
+inoremap jj <ESC>
+nnoremap j gj
+nnoremap k gk
+nnoremap ; :
 
 """"""""""
 " PLUGINS

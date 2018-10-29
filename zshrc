@@ -41,6 +41,7 @@ ZSH_THEME="agnoster"
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 plugins=(
   git
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -79,3 +80,4 @@ export CSCOPE_DB=.cscope/cscope.out
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:$HOME/tools/os161/bin:$HOME/tools/sys161/bin
 
+eval "$(rbenv init -)"
