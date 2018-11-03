@@ -72,12 +72,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-if [ -f ~/.bash_functions ]; then
+if [ -f $HOME/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
 export CSCOPE_DB=.cscope/cscope.out
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:$HOME/tools/os161/bin:$HOME/tools/sys161/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:$HOME/tools/os161/bin:$HOME/tools/sys161/bin:/Library/TeX/texbin
 
 eval "$(rbenv init -)"

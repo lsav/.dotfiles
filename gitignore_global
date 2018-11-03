@@ -18,14 +18,16 @@
 
 *.swp
 *.swo
+*.swn
 *.bak
 *.tmp
 *.log
+*.aux
 
 # others
 
 *.vscode
-*.DS_store
+*.DS_Store
 *.netrwhist
 
 # directories
@@ -34,4 +36,5 @@
 .tags/
 .ignore/
 _ignore/
+venv/
 

@@ -13,6 +13,11 @@ do
   ln -s $dotfiles_dir/$i $HOME/.$i
 done
 
+# set up vim
+cd $dotfiles_dir/vim/bundle
+git clone https://github.com/VundleVim/Vundle.vim.git
+vim +PluginInstall +qall
+
 # MacOS
 if [ `uname` == "Darwin" ] ; then
     if test ! $(which brew); then
@@ -39,7 +44,6 @@ if [ `uname` == "Darwin" ] ; then
 
     echo "Installing cask apps..."
     apps=(
-        bettertouchtool
         dropbox
         firefox
         google-chrome
@@ -78,6 +82,12 @@ if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
     ssh-keygen -t rsa -b 4096 -C "$email"
 fi
 
-pbcopy < $HOME/.ssh/id_rsa.pub
+if [ `uname` == "Darwin" ] ; then
+    pbcopy < $HOME/.ssh/id_rsa.pub
+elif [ `uname` == "Linux" ] ; then
+    sudo apt-get install xclip
+    xclip -sel clip < $HOME/.ssh/id_rsa.pub
+fi
+
 echo "Your public key has been copied to the clipboard. Go add it to github!"
 

@@ -13,10 +13,16 @@ mcd () {
 }
 
 copycat() {
-    if [[ $# -eq 1 ]] ; then
-        cat "$1" | xclip -selection clipboard
+    if [ `uname` == "Darwin" ] ; then
+        cp_cmd = "pbcopy"
     else
-        tail -$2 "$1" | xclip -selection clipboard
+        cp_cmd = "xclip -selection clipboard"
+    fi
+
+    if [[ $# -eq 1 ]] ; then
+        cat "$1" | $cp_cmd
+    else
+        tail -$2 "$1" | $cp_cmd
     fi
 }
 

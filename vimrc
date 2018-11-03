@@ -1,6 +1,29 @@
+" Plugins
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'mileszs/ack.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'lervag/vimtex'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'  " dependency for deoplete
+Plug 'roxma/vim-hug-neovim-rpc'  " dependency for deoplete
+
+call plug#end()
+
 " Basics
 
 set nocompatible
+set backspace=indent,eol,start
 filetype on
 filetype plugin on
 syntax enable
@@ -10,6 +33,11 @@ set hidden
 set history=100
 
 let mapleader=","
+
+" jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Visuals
 
@@ -31,7 +59,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set autoindent
-autocmd FileType tex setlocal ts=2 sw=2 sts=2 noai nosi
+autocmd FileType tex setlocal ts=2 sw=0 sts=0 noai nosi
 " autocmd FileType cpp setlocal ts=2 sw=2 sts=2
 autocmd FileType python setlocal nosmartindent  " fix comment indentation
 autocmd FileType markdown setlocal wrap linebreak nolist background=dark
@@ -73,9 +101,6 @@ nnoremap ; :
 
 cs add $CSCOPE_DB
 
-execute pathogen#infect()
-let g:NERDSpaceDelims = 1
-
 nnoremap <C-o> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
 
@@ -83,12 +108,9 @@ let NERDTreeQuitOnOpen = 1
 set laststatus=2
 set noshowmode
 
-let g:ycm_complete_in_comments=0
-let g:ycm_complete_in_strings=0
-let g:ycm_min_num_of_chars_for_completion=3
-let g:ycm_max_num_candidates=12
-let g:ycm_confirm_extra_conf=0
-let g:ycm_python_binary_path="python"
+" Haxx to load deoplete asynchronously
+let g:deoplete#enable_at_startup = 0
+autocmd FileType python,c,cpp call deoplete#enable()
 
 let g:clang_format#style_options={
                     \ "IndentWidth": 4, 
